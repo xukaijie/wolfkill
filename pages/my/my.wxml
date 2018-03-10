@@ -1,0 +1,11 @@
+<!--pages/my/my.wxml-->
+<view>
+
+<view class='imgCon'>
+
+<image src="{{header}}" class='headerClass'></image>
+</view>
+
+<view>
+</view>
+</view>

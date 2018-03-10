@@ -1,0 +1,158 @@
+/**index.wxss**/
+
+.con{
+
+  padding-left:30rpx;
+  padding-right:30rpx;
+  padding-top:50rpx;
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.emptycon{
+
+  text-align: center
+}
+
+.emptyText{
+
+  font-size: 28rpx;
+  margin-top: 28rpx;
+  color:rgba(170, 170, 170, 0.5);
+}
+
+.create{
+
+  width:300rpx;
+  height:80rpx;
+  border-radius:10rpx;
+  background: #3ab3ff;
+  color: #fff;
+
+  margin-top:50rpx;
+  font-size:30rpx;
+}
+
+.imgPic{
+
+    width:250rpx;
+    height:150rpx;
+}
+
+
+.itemText{
+
+  display: inline-block;
+  margin-left: 30rpx;
+  vertical-align: top;
+  font-size: 28rpx;
+  color: rgba(0, 0, 0, 0.8);
+  flex:1;
+  position: relative;
+  word-break: break-all;
+}
+
+.imgIcon{
+
+  width:30rpx;
+  height:30rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+
+}
+
+.imgExtra{
+
+  margin-right: 20rpx;
+}
+
+.locationIcon{
+
+  width:35rpx;
+  height:35rpx;
+  margin-left:-2rpx;
+}
+
+.textLine{
+  margin-bottom:10rpx;
+}
+
+.remark{
+  color:#dbdbdb;
+  font-size:24rpx;
+  margin-right:10rpx;
+}
+
+.wolfFlex{
+
+  display: flex
+}
+
+.sigIn{
+
+  position: absolute;
+
+  bottom: 0rpx;
+  right:0rpx;
+  font-size:35rpx;
+  color:#3ab3ff;
+  display:inline-block;
+  width:80rpx;
+  height:38rpx;
+  text-align:center;
+
+}
+
+.sigInAlready{
+  position: absolute;
+  bottom: 0rpx;
+  right:0rpx;
+  font-size: 30rpx;
+  color:#747474;
+}
+
+.fixedNew{
+
+  position: fixed;
+  bottom: 100rpx;
+  left:20rpx;
+  width:100rpx;
+  height:100rpx;
+  line-height: 100rpx;
+  border-radius:50%;
+  background: #3ab3ff;
+  color: #fff;
+
+  margin-top:50rpx;
+  font-size:24rpx;
+  padding: 0rpx;
+  -moz-box-shadow:2px 2px 5px #333333; 
+  -webkit-box-shadow:2px 2px 5px #333333; 
+  box-shadow:2px 2px 5px #333333;
+}
+
+.wolfFlex{
+
+ padding-bottom:30rpx;
+    border-bottom:1rpx solid rgba(170, 170, 170, 0.4);
+    margin-bottom: 30rpx
+
+}

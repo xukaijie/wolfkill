@@ -1,0 +1,55 @@
+<!--pages/createWolf/index.wxml-->
+<view class='wrap'>
+
+<view class="title">
+
+  活动信息
+</view>
+
+<view class="item">
+
+<text style="color:red">*</text><text class='itemTitle'>时间：</text>
+  <picker mode="date" start="{{nowDate}}" end="2080-12-31" style="margin-bottom:20rpx" bindchange="bindDateChange">  
+      <view class="picker">  
+      {{activeDate}}
+      </view>  
+    </picker>
+
+    <picker mode="time" start="{{nowTime}}" end="23:59" bindchange="bindTimeChange">  
+      <view class="picker">  
+      {{activeTime}}
+      </view>  
+    </picker>    
+</view>
+
+
+<view class="item">
+<text style="color:red">*</text><text class='itemTitle'>地点：</text>
+      <input class="picker" bindinput="bindReplaceInput"></input>  
+</view>
+
+
+<view class="item">
+<text style="color:red">*</text><text class='itemTitle'>人数限制：</text>
+<picker mode = "selector" range="{{limitArray}}" bindchange="bindLimitChange">  
+      <view class="picker">  
+      {{limit}}
+      </view>  
+    </picker>    
+</view>
+
+<view class="item">
+<text style="color:red">*</text><text class='itemTitle'>新增角色：</text>
+      <input class="picker" bindinput="bindReplaceRole"></input>  
+</view>
+
+<view class="item">
+<text class='itemTitle'>备注：</text>
+
+<input class="picker" bindinput="bindReplaceRemark"></input>  
+</view>
+<button class='createBtn' bindtap='createActive'>创建</button>
+</view>
+
+
+

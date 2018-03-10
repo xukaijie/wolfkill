@@ -1,0 +1,6 @@
+<!--pages/wolfDetail/wolfDetail.wxml-->
+<view class='con'>
+
+<view style='margin-bottom:40rpx;color:#aaa'>报名人数:</view>
+<view wx:for="{{enterList}}">{{item.nickName}}</view>
+</view>

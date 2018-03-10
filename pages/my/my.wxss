@@ -1,0 +1,26 @@
+/* pages/my/my.wxss */
+
+.imgCon{
+
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:300rpx;
+  border-bottom:1rpx solid #aaa;
+}
+
+.headerClass{
+
+  width:200rpx;
+  height:200rpx;
+  border-radius:50%;
+}
+
+.authItem{
+
+  font-size:28rpx;
+  margin-top:30rpx;
+  padding-left:10rpx;
+  padding-right:10rpx;
+}

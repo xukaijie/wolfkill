@@ -1,0 +1,11 @@
+/* pages/wolfDetail/index.wxss */
+
+
+.con{
+
+  padding-top:50rpx;
+  padding-left:50rpx;
+  padding-right:50rpx;
+
+  font-size:28rpx;
+}

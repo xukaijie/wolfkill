@@ -1,0 +1,52 @@
+<!--index.wxml-->
+
+<button class='fixedNew' bindtap='createOne'>新建</button>
+
+<view class="con">
+  <view wx:if="{{wolfList.length !== 0}}" class='conItem'>
+  
+  <view wx:for="{{wolfList}}" class='wolfFlex' bindtap='enterWolf' data-wolfid="{{item.wolfId}}" >
+    <image src="../../images/wolf.jpg" class='imgPic'></image>
+
+    <view class='itemText'>
+
+    <text class='{{item.sigInClass}}' catchtap='sigIn' data-name="{{item.sigInName}}"
+    id="{{item.wolfId}}">{{item.sigInName}}</text>
+
+      <view class='textLine'>
+          <image src="../../images/time.png" class='imgIcon'></image><text>{{item.activeTime}}</text>
+      </view>
+
+      <view class='textLine'>
+          <image src="../../images/location.png" class='imgIcon locationIcon'></image><text>{{item.location}}</text>
+      </view>
+
+       <view class='textLine'>
+          <image src="../../images/my_fill.png" class='imgIcon locationIcon'></image><text>{{item.founder}}</text>
+      </view>
+
+      <view class='textLine'>
+          <image src="../../images/count.png" class='imgIcon locationIcon'></image><text>{{item.enterList.length}}/{{item.limit}}</text>
+      </view>
+
+       <view class='textLine'>
+          <image src="../../images/add.png" class='imgIcon locationIcon'></image><text>{{item.newRole}}</text>
+      </view>
+
+       <view>
+          <image src="../../images/remark.png" class='imgIcon imgExtra'></image><text>{{item.remark || "无"}}</text>
+      </view>
+
+
+    </view>
+  </view>
+  </view>
+
+  <view wx:else class='emptycon'>
+    <image src='../../images/empty.png' style='width:250rpx;height:220rpx'></image>
+
+    <view class='emptyText'><text>还没有活动呢,联系管理员进行创建吧。</text>
+    <button class='create' bindtap='createOne'>新建活动</button>
+    </view>
+  </view>
+</view>
