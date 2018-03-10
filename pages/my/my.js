@@ -28,8 +28,6 @@ Page({
 
     wx.getSetting({
       success: (res) => {
-
-        console.log(res.authSetting)
         if (!res.authSetting['scope.userInfo']) {
 
           this.setData({

@@ -6,7 +6,8 @@ import {
 
   getWolfList,
   setOpenId,
-  wolfSigIn
+  wolfSigIn,
+  getAdminList
 } from '../../service/request.js';
 
 
@@ -16,7 +17,8 @@ Page({
     wolfList:[],
     page:1,
     sigIn:"报名",
-    isLoad:false
+    isLoad:false,
+    isAdmin:false
   },
   onLoad: function () {
     wx.login({
@@ -39,6 +41,8 @@ Page({
                 }
 
                 this._getWolfList();
+
+                this.checkAdmin();
               })
 
           },
@@ -69,6 +73,34 @@ Page({
         this._getWolfList();
 
     this.data.isLoad = true;
+  },
+
+  checkAdmin:function(){
+
+      getAdminList()
+      .then((data)=>{
+
+        if (app.globalData.userInfo && app.globalData.userInfo.openId){
+          var openId = app.globalData.userInfo.openId;
+
+          var list = data.data.map((d)=>{
+
+            return d.openId
+          })
+
+          console.log(list);
+
+          console.log(openId)
+          if (list.indexOf(openId) !== -1){
+
+            app.globalData.isAdmin = true;
+            this.setData({
+
+              isAdmin:true
+            })
+          }
+        }
+      })
   },
 
   _getWolfList: function (page = this.data.page){
@@ -120,7 +152,7 @@ Page({
 
       wx.showModal({
         title: '提示',
-        content: '您未进行用户信息授权,请到个人中心进行相关授权',
+        content: '您未进行用户信息授权',
         icon: "none"
       })
       return;

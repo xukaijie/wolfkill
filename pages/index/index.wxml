@@ -1,6 +1,6 @@
 <!--index.wxml-->
 
-<button class='fixedNew' bindtap='createOne'>新建</button>
+<button class='fixedNew' bindtap='createOne' wx:if="{{isAdmin}}">新建</button>
 
 <view class="con">
   <view wx:if="{{wolfList.length !== 0}}" class='conItem'>
@@ -46,7 +46,7 @@
     <image src='../../images/empty.png' style='width:250rpx;height:220rpx'></image>
 
     <view class='emptyText'><text>还没有活动呢,联系管理员进行创建吧。</text>
-    <button class='create' bindtap='createOne'>新建活动</button>
+    <button class='create' bindtap='createOne' wx:if="{{isAmin}}">新建活动</button>
     </view>
   </view>
 </view>

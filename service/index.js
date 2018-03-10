@@ -5,6 +5,7 @@ const COMMON = { // 各模块经常复用的模块
     GET_WOLF_DETAIL: `${apiHost}/api/wolf/v1/wolfDetail`,
     GET_WOLF_LIST: `${apiHost}/api/wolf/v1/getWolfList`,
     GET_USER_INFO: `${apiHost}/api/wolf/v1/userInfo`,
+    GET_ADMIN_LIST: `${apiHost}/api/wolf/v1/adminList`,
   },
 
   POST: {

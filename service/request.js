@@ -28,12 +28,17 @@ const wolfDetail = (params)=>{
   return getJson(COMMON.GET.GET_WOLF_DETAIL, params);
 }
 
+const getAdminList = (params)=>{
+  return getJson(COMMON.GET.GET_ADMIN_LIST, params);
+
+}
 module.exports = {
   
   getWolfList,
   wolfSigIn,
   createWolf,
   setOpenId,
-  wolfDetail
+  wolfDetail,
+  getAdminList
 }
 
