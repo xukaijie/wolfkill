@@ -11,5 +11,7 @@
 <view wx:if="{{isSuperAdmin}}" class='authSet' bindtap='clickAuth'>
 <image src="../../images/set.png" class='imgPic'></image><text style="margin-left:10rpx">管理员设置</text><image src="../../images/arrow.png" class='imgPic arrow'></image>
 </view>
+
+<button open-type="getUserInfo" bindgetuserinfo="userInfoHandler" class='scopeBtn'> 授权 </button>
 </view>
 </view>

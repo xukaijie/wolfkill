@@ -1,6 +1,13 @@
 // pages/my/my.js
 
 var app = getApp();
+
+
+import {
+
+  reLogin
+} from '../../common/common.js';
+
 Page({
 
   /**
@@ -109,5 +116,10 @@ Page({
     wx.navigateTo({
       url: '../authPage/index',
     })
+  },
+
+  userInfoHandler:function(param){
+
+    reLogin();
   }
 })

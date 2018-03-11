@@ -168,7 +168,7 @@ Page({
 
       wx.showModal({
         title: '提示',
-        content: '您未进行用户信息授权',
+        content: '您未进行用户信息授权,请到个人中心进行授权',
         icon: "none"
       })
       return;

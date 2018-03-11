@@ -2,6 +2,7 @@
 //获取应用实例
 
 var app = getApp();
+console.log(app);
 import {
 
   getWolfList,
@@ -12,6 +13,10 @@ import {
   deleteWolf
 } from '../../service/request.js';
 
+import {
+
+  reLogin
+} from '../../common/common.js';
 
 Page({
   data: {
@@ -25,42 +30,13 @@ Page({
     modalHidden:true
   },
   onLoad: function () {
-    wx.login({
-      success: res => {
-        var code = res.code;
-        wx.getUserInfo({
-          success: userInfo => {
-            var nickName = JSON.parse(userInfo.rawData).nickName;
-            var header = JSON.parse(userInfo.rawData).avatarUrl;
-            setOpenId({
-              code: code,
-              nickName: nickName,
-              header: header
-            })
-              .then((data) => {
-                app.globalData.userInfo = {
-                  openId: data.data,
-                  nickName: nickName,
-                  header: header
-                }
+    reLogin(()=>{
 
-                this._getWolfList();
+      this._getWolfList();
+      this.checkAdmin();
+    },()=>{
 
-                this.checkAdmin();
-              })
-
-          },
-          fail:res=>{
-
-            this._getWolfList();
-          }
-        })
-
-      },
-      fail: res => {
-
-        this._getWolfList();
-      }
+      this._getWolfList();
     })
   },
   
@@ -184,11 +160,12 @@ Page({
   },
 
   sigIn:function(e){
+
     if (!app.globalData.userInfo || !app.globalData.userInfo.openId) {
 
       wx.showModal({
         title: '提示',
-        content: '您未进行用户信息授权',
+        content: '您未进行用户信息授权,请到个人中心进行授权',
         icon: "none"
       })
       return;

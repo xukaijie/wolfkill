@@ -46,7 +46,7 @@ const authList = (params) => {
 
 const setAuth = (params) =>{
 
-  return postJson(COMMON.POST.SET_AUTH_LIST,params);
+  return postJson(COMMON.POST.SET_AUTH_LIST,params)
 }
 
 module.exports = {
