@@ -17,7 +17,7 @@ Page({
   
     header:"../../images/wolf.jpg",
     isSuperAdmin:false,
-  
+    scopeUserInfo:true
   },
 
   /**
@@ -25,21 +25,6 @@ Page({
    */
   onLoad: function (options) {
   
-
-    if (app.globalData.userInfo && app.globalData.userInfo.header){
-
-      this.setData({
-
-        isSuperAdmin: app.globalData.isSuperAdmin,
-        header: app.globalData.userInfo.header
-      })
-    }else{
-
-      this.setData({
-
-        isSuperAdmin: app.globalData.isSuperAdmin
-      })
-    }
    
   },
 
@@ -55,6 +40,7 @@ Page({
    */
   onShow: function () {
   
+      this.initData();
   },
 
   /**
@@ -121,5 +107,25 @@ Page({
   userInfoHandler:function(param){
 
     reLogin();
+  },
+
+  initData:function(){
+
+    if (app.globalData.userInfo && app.globalData.userInfo.header) {
+
+      this.setData({
+
+        isSuperAdmin: app.globalData.isSuperAdmin,
+        header: app.globalData.userInfo.header,
+        scopeUserInfo: true
+      })
+    } else {
+
+      this.setData({
+
+        isSuperAdmin: app.globalData.isSuperAdmin,
+        scopeUserInfo: false
+      })
+    }
   }
 })
