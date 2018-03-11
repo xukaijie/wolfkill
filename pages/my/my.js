@@ -18,10 +18,22 @@ Page({
    */
   onLoad: function (options) {
   
-   this.setData({
 
-     isSuperAdmin: app.globalData.isSuperAdmin   
-   })
+    if (app.globalData.userInfo && app.globalData.userInfo.header){
+
+      this.setData({
+
+        isSuperAdmin: app.globalData.isSuperAdmin,
+        header: app.globalData.userInfo.header
+      })
+    }else{
+
+      this.setData({
+
+        isSuperAdmin: app.globalData.isSuperAdmin
+      })
+    }
+   
   },
 
   /**
