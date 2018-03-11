@@ -106,6 +106,15 @@
   display: flex
 }
 
+
+.delete{
+
+  position: absolute;
+  color: red;
+  font-size:28rpx;
+  right: 0rpx;
+  top: 0rpx;
+}
 .sigIn{
 
   position: absolute;

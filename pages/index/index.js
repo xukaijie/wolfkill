@@ -7,7 +7,9 @@ import {
   getWolfList,
   setOpenId,
   wolfSigIn,
-  getAdminList
+  getAdminList,
+
+  deleteWolf
 } from '../../service/request.js';
 
 
@@ -18,7 +20,9 @@ Page({
     page:1,
     sigIn:"报名",
     isLoad:false,
-    isAdmin:false
+    isAdmin:false,
+
+    modalHidden:true
   },
   onLoad: function () {
     wx.login({
@@ -65,12 +69,15 @@ Page({
      */
   onPullDownRefresh: function () {
     wx.showNavigationBarLoading();
-    this._getWolfList(1)
+    this._getWolfList(1);
+    this.checkAdmin();
   },
 
   onShow:function(){
-    if (this.data.isLoad === true)
+    if (this.data.isLoad === true){
         this._getWolfList();
+        this.checkAdmin();
+    }
 
     this.data.isLoad = true;
   },
@@ -88,17 +95,32 @@ Page({
             return d.openId
           })
 
-          console.log(list);
-
-          console.log(openId)
-          if (list.indexOf(openId) !== -1){
+          var index = list.indexOf(openId)
+          if (index !== -1){
 
             app.globalData.isAdmin = true;
+            if (data.data[index].isSuperAdmin == true){
+
+              app.globalData.isSuperAdmin = true;
+            }
+
             this.setData({
 
               isAdmin:true
             })
+          }else{
+
+            this.setData({
+
+              isAdmin: false
+            })
           }
+        }else{
+
+          this.setData({
+
+            isAdmin: false
+          })
         }
       })
   },
@@ -120,8 +142,11 @@ Page({
         else
           continue;
 
-  
-        if (d.enterList.indexOf(openId) !== -1){
+        var _enter = d.enterList.map((e)=>{
+
+            return e.openId;
+        })
+        if (_enter.indexOf(openId) !== -1){
           d.sigInName = "已报名";
           d.sigInClass="sigInAlready"
         }
@@ -161,22 +186,14 @@ Page({
     if (e.currentTarget.dataset.name === "已报名")
     return;
 
-    var wolfId = e.currentTarget.id;
-    var openId = app.globalData.userInfo.openId;
 
-    wolfSigIn({
-      wolfId: wolfId,
-      openId: openId
-
+    this.setData({
+      modalHidden:false,
+      currentWolfId:e.currentTarget.id
     })
-    .then(()=>{
-      wx.showToast({
-        title: '报名成功',
-      })
 
-      this._getWolfList();
-    })
-    
+
+    return;
   },
 
   enterWolf:function(e){
@@ -184,6 +201,53 @@ Page({
     wx.navigateTo({
       url: '../wolfDetail/wolfDetail?wolfId='+wolfId
 
+    })
+  },
+
+
+  _sureBtn:function(e){
+
+    var wolfId = this.data.currentWolfId;
+    var openId = app.globalData.userInfo.openId;
+
+    wolfSigIn({
+      wolfId: wolfId,
+      openId: openId,
+      remark:e.detail.remark
+
+    })
+      .then(() => {
+        wx.showToast({
+          title: '报名成功',
+        })
+
+        this._getWolfList();
+      })
+  },
+
+
+  deletWolf:function(e){
+
+    var wolfId = e.currentTarget.dataset.wolfid;
+
+    wx.showModal({
+      title: '确认',
+      content: '确认删除？',
+      success:(e)=>{
+
+        if (e.confirm){
+          deleteWolf({wolfId:wolfId})
+          .then(()=>{
+
+            wx.showToast({
+              title: '删除成功',
+            })
+
+            this._getWolfList();
+          })
+        }
+      }
+    
     })
   }
 })

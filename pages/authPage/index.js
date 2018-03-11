@@ -1,16 +1,19 @@
-// pages/my/my.js
+// pages/authPage/index.js
 
-var app = getApp();
+import {
+
+    authList,
+    setAuth
+
+}from '../../service/request.js'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
-    header:"../../images/wolf.jpg",
-    isSuperAdmin:false,
-  
+    authList
   },
 
   /**
@@ -18,10 +21,14 @@ Page({
    */
   onLoad: function (options) {
   
-   this.setData({
+    authList()
+    .then((data)=>{
 
-     isSuperAdmin: app.globalData.isSuperAdmin   
-   })
+      this.setData({
+
+        authList:data.data
+      })
+    })
   },
 
   /**
@@ -73,29 +80,17 @@ Page({
   
   },
 
-  changeUserInfo: function(e){
 
-    this.setData({
+  switchChange:function(e){
 
-      scope_userInfo: e.detail.value
-    })
+    var openId = e.currentTarget.dataset.openid;
 
-    wx.authorize({
-      scope: 'scope.userInfo',
-      success() {
-       
-      },
-      fail(res){
+    var value = e.detail.value;
 
-        console.log(res)
-      }
-    })
-  },
 
-  clickAuth:function(){
-
-    wx.navigateTo({
-      url: '../authPage/index',
+    setAuth({
+      openId:openId,
+      value:value
     })
   }
 })

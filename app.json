@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/my/my",
     "pages/wolfDetail/wolfDetail",
-    "pages/createWolf/index"
+    "pages/createWolf/index",
+    "pages/authPage/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -12,6 +12,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    isAdmin:false
+    isAdmin:false,
+    isSuperAdmin:false
   }
 })

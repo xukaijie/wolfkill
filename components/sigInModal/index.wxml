@@ -1,0 +1,13 @@
+<!--components/sigInModal/index.wxml-->
+<view class='modal' hidden='{{modalHidden}}'>
+
+<view class="item">
+<text class='itemTitle'>备注：</text>
+      <input class="picker" bindinput="bindReplaceInput"></input>  
+
+
+<button class='sigInBtn' bindtap='sigIn'>报名</button>
+</view>
+
+
+</view>

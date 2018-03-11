@@ -1,0 +1,14 @@
+/* pages/authPage/index.wxss */
+
+.con{
+
+  padding-left:30rpx;
+  padding-top:100rpx;
+}
+
+.authItem{
+
+  font-size:30rpx;
+
+  margin-bottom:30rpx;
+}

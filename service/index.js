@@ -6,6 +6,7 @@ const COMMON = { // 各模块经常复用的模块
     GET_WOLF_LIST: `${apiHost}/api/wolf/v1/getWolfList`,
     GET_USER_INFO: `${apiHost}/api/wolf/v1/userInfo`,
     GET_ADMIN_LIST: `${apiHost}/api/wolf/v1/adminList`,
+    GET_AUTH_LIST: `${apiHost}/api/wolf/v1/getAuthList`,
   },
 
   POST: {
@@ -17,6 +18,10 @@ const COMMON = { // 各模块经常复用的模块
     CREATE_WOLF: `${apiHost}/api/wolf/v1/createWolf`,
   
     SET_OPEN_ID: `${apiHost}/api/wolf/v1/openId`,
+
+    DELETE_WOLF: `${apiHost}/api/wolf/v1/deleteWolf`,
+
+    SET_AUTH_LIST: `${apiHost}/api/wolf/v1/setAuthList`,
   }
     
 }

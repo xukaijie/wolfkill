@@ -1,0 +1,9 @@
+<!--pages/authPage/index.wxml-->
+<view class='con'>
+
+<view wx:for="{{authList}}" class='authItem'>
+
+<switch checked="{{item.isAdmin}}" bindchange="switchChange" data-openid="{{item.openId}}"></switch> <text>{{item.nickName}}</text>
+</view>
+
+</view>
