@@ -39,7 +39,7 @@
 </view>
 
 <view class="item">
-<text style="color:red">*</text><text class='itemTitle'>新增角色：</text>
+<text class='itemTitle'>新增角色：</text>
       <input class="picker" bindinput="bindReplaceRole"></input>  
 </view>
 
