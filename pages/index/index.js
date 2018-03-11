@@ -125,6 +125,17 @@ Page({
       })
   },
 
+  onShareAppMessage:function(){
+
+    return {
+
+      title:"活动已创建，快来报名吧",
+      desc: '最具人气的小程序开发联盟!',
+      path:"/pages/index/index"
+    }
+
+  },
+
   _getWolfList: function (page = this.data.page){
     getWolfList({page:page})
     .then((data)=>{
